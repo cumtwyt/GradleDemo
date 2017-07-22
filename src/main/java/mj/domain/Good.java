@@ -12,6 +12,8 @@ public class Good implements Serializable{
 	public String good_image1;
 	public String good_image2;
 	public Subject Subject_id;
+	public int good_store;
+	public int good_sell;
 	
 	
 
@@ -87,11 +89,30 @@ public class Good implements Serializable{
 	public void setGood_image2(String good_image2) {
 		this.good_image2 = good_image2;
 	}
+	
+	
+
+	public int getGood_store() {
+		return good_store;
+	}
+
+	public void setGood_store(int good_store) {
+		this.good_store = good_store;
+	}
+
+	public int getGood_sell() {
+		return good_sell;
+	}
+
+	public void setGood_sell(int good_sell) {
+		this.good_sell = good_sell;
+	}
 
 	@Override
 	public String toString() {
 		return "Good [good_id=" + good_id +",good_name="+good_name + ", good_price="
-				+ good_price + ",good_remark="+good_remark+",good_image="+good_image+",good_image1="+good_image1+",good_image2="+good_image2+"]";
+				+ good_price + ",good_remark="+good_remark+",good_image="+good_image+",good_image1="+good_image1+","
+						+ "good_image2="+good_image2+",good_store="+good_store+",good_sell="+good_sell+"]";
 	}
 	
 	

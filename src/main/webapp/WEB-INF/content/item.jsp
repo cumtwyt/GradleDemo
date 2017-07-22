@@ -89,6 +89,11 @@
 	                                    			<div class="header">
 														<strong class="primary-font">价格：</strong><span style="color: red;font-size: 20px;">${item1.good_price}<span style="color: grey;font-size: 16px">元</span></span>
 													</div>
+													<hr>
+													<div class="header">
+														<strong class="primary-font">库存：</strong><span style="color: red;font-size: 20px;">${item1.good_store}<span style="color: grey;font-size: 16px">本</span></span>
+														<strong class="primary-font">销售：</strong><span style="color: red;font-size: 20px;">${item1.good_sell}<span style="color: grey;font-size: 16px">本</span></span>
+													</div>
 	                                    			<div><hr></div>
 	                                   				
 	                                   				<div>

@@ -32,10 +32,7 @@ public class OrderController {
 	@RequestMapping(value = "/intoorder")
 	public String save(String good_id,HttpSession session,HttpServletRequest request,Model model,Integer good_number) {
 		String user_id=(String) session.getAttribute("numb");//获取用户id
-		System.out.println(user_id);
-		System.out.println(good_id);
 		Good good_1=orderService.selectGood(good_id);
-		System.out.println(good_1);
 		String order_name=good_1.getGood_name();
 		int order_price=Integer.parseInt(good_1.getGood_price());
 		String order_image=good_1.getGood_image();
