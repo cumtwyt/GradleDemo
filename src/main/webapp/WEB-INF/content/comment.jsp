@@ -66,13 +66,14 @@
 						<ul>
 							<li class="active"><a href="index">首页</a></li>
 							<li><a href="#new">新品上市</a></li>
-							<li class="has-dropdown"><a href="#show">书籍展示</a></li>
+							<li class="has-dropdown"><a href="index#show">书籍展示</a></li>
 							<li class="has-dropdown"><a href="# ">用户设置</a>
 								<ul class="dropdown">
-									<li style="font-size:13px;font-family:仿宋;"><a href="check">查看个人信息</a></li>
-									<li style="font-size:13px;font-family:仿宋;"><a href="check">修改个人信息</a></li>
-									<li style="font-size:13px;font-family:仿宋;"><a href="addcomment">添加书籍评论 </a></li>
-									<li style="font-size:13px;font-family:仿宋;"><a href="deletecomment">清空用户评论 </a></li>
+									<li style="font-size:13px;font-family:仿宋;"><a href="backpwd">查看个人信息</a></li>
+								<li style="font-size:13px;font-family:仿宋;"><a href="p-update">修改密码</a></li>
+								<li style="font-size:13px;font-family:仿宋;"><a href="check">修改个人信息</a></li>
+								<li style="font-size:13px;font-family:仿宋;"><a href="order">查看订单 </a></li>
+								<li style="font-size:13px;font-family:仿宋;"><a href="deletecomment">清空用户评论 </a></li>
 								</ul>
 							</li>
 							<li><a href="#contact">联系我们</a></li>

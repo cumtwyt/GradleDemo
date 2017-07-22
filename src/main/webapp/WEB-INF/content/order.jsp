@@ -43,6 +43,7 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
+	<link href="css/bootstrap.min1.css" rel="stylesheet">
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -65,10 +66,10 @@
 					<p style="font-size:30px;color:#ffffff;font-family: 华文行楷;">各“书”己见--用户订单</p>
 					</div>
 					<div class="col-xs-2">
-						<div>
+						<div class="search d1">
 						<form action="selectorder">
-							<input type="text" name="order_id" placeholder="输入订单号查询订单" style="width:70%"/>
-					 		<input type="submit" value="搜索" style="width:25%"/>
+							<input type="text" name="order_id" placeholder="输入订单号查询订单"/>
+					 		<button type="submit">Find</button>
 						</form>
 						</div>
 					</div>

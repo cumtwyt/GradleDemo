@@ -23,7 +23,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">各“书”己见</a>
+				<a class="navbar-brand" href="index">各“书”己见</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 					<p>${sessionScope.user.user_name }</p>

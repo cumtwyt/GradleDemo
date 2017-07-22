@@ -109,10 +109,8 @@
 						</div>
 						<br/>
 						<div class="form-group">
-							&emsp;&emsp;&emsp;&emsp;
 							<button type="submit" class="btn btn-primary" onclick="Save()">登录</button>
 							<span style="font-family: 仿宋;font-size: 14px"><a href="backpwd">忘记密码</a></span>
-							&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
     						<a href="enrollbutton"/><input type="button" value="注册" class="btn btn-primary"/></a>
   						</div>
   						<c:if test="${message!=null}"><c:out value="${message}"></c:out></c:if>

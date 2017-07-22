@@ -110,7 +110,7 @@
 											<td><a href="rowdelete?good_id=${cart.cart_gid}"><button type="button" class="btn btn-primary">删除购物车</button></a></td>
 											</form>
 											<td>
-												<form action="intoorder?good_id=${cart.cart_gid}">
+												<form action="intoorder?good_id=${cart.cart_gid}" method="post">
 													<input type="hidden" value="${cart.cart_number}" name="good_number"/>
 													<input type="submit" value="加入订单" class="btn btn-primary"/>
 												</form>
