@@ -40,6 +40,9 @@ public interface OrderMapper {
 	@Select("select * from tb_order where order_id=#{order_id}")
 	List<Order> selectById(@Param("order_id")int order_id);
 	
+	@Select("update tb_good set good_store=#{good_store},good_sell=#{good_sell} where good_id=#{good_id}")
+	Good updatestandse(@Param("good_store")int good_store,@Param("good_sell")int good_sell,@Param("good_id")String good_id);
+	
 	
 	
 }

@@ -70,6 +70,12 @@ public class OrderServiceImpl implements OrderService{
 		return orderMapper.selectById(order_id);
 	}
 
+	@Override
+	public Good updatestandse(int good_store, int good_sell, String good_id) {
+		// TODO Auto-generated method stub
+		return orderMapper.updatestandse(good_store, good_sell, good_id);
+	}
+
 	
 
 	

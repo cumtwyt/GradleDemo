@@ -3,6 +3,7 @@ package mj.service;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import mj.domain.Cart;
 import mj.domain.Good;
@@ -25,6 +26,8 @@ public interface OrderService {
 	Order updatestatus(String order_status,Integer order_id);
 	
 	List<Order> selectById(int order_id);
+	
+	Good updatestandse(int good_store,int good_sell,String good_id);
 	
 
 }

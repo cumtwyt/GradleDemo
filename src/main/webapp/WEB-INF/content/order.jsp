@@ -97,7 +97,7 @@
 							        <th style="width:15%;">订单编号</th>
 							        <th style="width:15%;">购买书籍名称</th>
 							        <th style="width:10%;">购买数量</th>
-							        <th style="width:10%;">单价</th>
+							        <th style="width:10%;">总价</th>
 							        <th style="width:20%;">图片</th>
 							        <th style="width:10%;">状态</th>
 							        <th style="width:10%;">操作</th>	

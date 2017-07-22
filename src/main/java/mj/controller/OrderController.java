@@ -33,10 +33,13 @@ public class OrderController {
 	public String save(String good_id,HttpSession session,HttpServletRequest request,Model model,Integer good_number) {
 		String user_id=(String) session.getAttribute("numb");//获取用户id
 		Good good_1=orderService.selectGood(good_id);
+		int good_store=good_1.getGood_store()-good_number;
+		int good_sell=good_1.getGood_sell()+good_number;
 		String order_name=good_1.getGood_name();
-		int order_price=Integer.parseInt(good_1.getGood_price());
+		int order_price=Integer.parseInt(good_1.getGood_price())*good_number;
 		String order_image=good_1.getGood_image();
 		String order_status="待出库";
+		Good updatess=orderService.updatestandse(good_store, good_sell, good_id);
 		Order order=orderService.findGoodById(user_id,good_id);
 		int b=0;
 		if (order != null) {
