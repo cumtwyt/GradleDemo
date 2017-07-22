@@ -24,10 +24,7 @@ public class GoodServiceImpl implements GoodService{
 		return goodMapper.findAll();
 	}
 	
-	@Override
-	public Good addgood(String id, String name,String price,String remark,String image,int subjectid) {
-		return goodMapper.addgood(id, name,price,remark,image,subjectid);
-	}
+	
 	
 	@Override
 	public Good updategood(String id, String name,String price,String remark,String image,int subjectid) {
@@ -49,6 +46,15 @@ public class GoodServiceImpl implements GoodService{
 	public Good selectById(String id) {
 		// TODO Auto-generated method stub
 		return goodMapper.selectById(id);
+	}
+
+
+
+	@Override
+	public Good addgood(String id, String name, String price, String remark, String image, String image1, String image2,
+			int subjectid) {
+		// TODO Auto-generated method stub
+		return goodMapper.addgood(id, name, price, remark, image, image1, image2, subjectid);
 	}
 
 

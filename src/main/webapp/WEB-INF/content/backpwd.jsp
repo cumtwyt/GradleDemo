@@ -89,14 +89,14 @@
 											<div>
 												  <div class="row form-group" >
 												    <label for="exampleInputusername">用户名</label>
-												    <input name="username" class="form-control" id="exampleInputusername" placeholder="用户名" value="${user.user_name}" }>
+												    <input name="username" class="form-control" id="exampleInputusername" placeholder="用户名" >
 												  </div>
 												  <div class="row form-group">验证问题</label>
-												    <input name="question" type="text" class="form-control" id="exampleInputquestion" placeholder="请输入你注册时设置的问题" value="${user.user_que}">
+												    <input name="question" type="text" class="form-control" id="exampleInputquestion" placeholder="请输入你注册时设置的问题" ">
 												  </div>
 												  <div class="row form-group">
 												    <label for="exampleInputanswer">验证答案</label>
-												    <input name="answer" class="form-control" id="exampleInputanswer" placeholder="请输入您的答案" value="${user.user_anw}">
+												    <input name="answer" class="form-control" id="exampleInputanswer" placeholder="请输入您的答案" ">
 												  </div>
 												  <div class="row form-group">
 												  	<input type="submit" class="form-control" value="提交" style="margin-top:40px;background: #52d3aa;color: #fff;border: 2px solid #52d3aa;"  />

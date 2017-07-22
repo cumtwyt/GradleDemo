@@ -128,6 +128,12 @@
 									<label>图片</label>
 									<input type="file" name="image" class="btn btn-primary">
 									 <p class="help-block">请选择要添加的图片</p>
+									 <label>图片</label>
+									<input type="file" name="image1" class="btn btn-primary">
+									 <p class="help-block">请选择要添加的图片</p>
+									 <label>图片</label>
+									<input type="file" name="image2" class="btn btn-primary">
+									 <p class="help-block">请选择要添加的图片</p>
 							</div>
 							<div class="form-group">
 								<center><input type='submit' value='添加图书' class="btn btn-primary"></center>

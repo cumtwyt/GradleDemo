@@ -39,25 +39,20 @@ public class GoodController {
 		return "index";
 	}
 	
-	
-	@RequestMapping(value="/shop")
-	 public String main2(Model model){
+	@RequestMapping(value="/add")
+	 public String addbook(Model model,String id,
+				String name,String price,String remark,String image,
+				String image1,String image2,int subjectid){
+		Good addgood=goodService.addgood(id, name, price, remark, image, image1, image2, subjectid);
 		// 获得所有物品
-		List<Good> good_list = goodService.getAll();
+		List<Good> good_list =goodService.getAll();
 		// 将物品集合添加到model当中
 		model.addAttribute("good_list", good_list);
-		return "shop";
+		// 跳转到shop页面
+		return "readgood";
 	}
 	
 	
-	@RequestMapping(value="/add")
-	public ModelAndView addbook(ModelAndView mv,String id,
-			String name,String price,String remark,String image,int subjectid){
-		Good addgood=goodService.addgood(id,name,price,remark,image,subjectid);
-		mv.setViewName("msuccess");
-		return mv;
-	
-	}
 	
 	@RequestMapping(value="/update")
 	public ModelAndView updatebook(ModelAndView mv,String id,
@@ -68,11 +63,16 @@ public class GoodController {
 	}
 	
 	@RequestMapping(value="/delete")
-	public ModelAndView deletegood(ModelAndView mv,String id){
+	 public String deletebook(Model model,String id){
 		goodService.deletegood(id);
-		mv.setViewName("msuccess");
-		return mv;
+		// 获得所有物品
+		List<Good> good_list =goodService.getAll();
+		// 将物品集合添加到model当中
+		model.addAttribute("good_list", good_list);
+		// 跳转到shop页面
+		return "readgood";
 	}
+	
 	
 	@RequestMapping(value="/category")
 	public String category(HttpServletRequest request,Model model){
