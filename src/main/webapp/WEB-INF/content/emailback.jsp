@@ -85,18 +85,14 @@
 								<div class="row">
 									<div class="col-md-6 animate-box">
 										<h3>请输入：</h3>
-										<form action="ifindpwd" method="post">
+										<form action="findpwdemail" method="post">
 											<div>
 												  <div class="row form-group" >
 												    <label for="exampleInputusername">用户名</label>
-												    <input name="username" class="form-control" id="exampleInputusername" placeholder="用户名" >
+												    <input name="loginname" class="form-control" id="exampleInputusername" placeholder="用户名" >
 												  </div>
-												  <div class="row form-group">验证问题</label>
-												    <input name="question" type="text" class="form-control" id="exampleInputquestion" placeholder="请输入你注册时设置的问题" ">
-												  </div>
-												  <div class="row form-group">
-												    <label for="exampleInputanswer">验证答案</label>
-												    <input name="answer" class="form-control" id="exampleInputanswer" placeholder="请输入您的答案" ">
+												  <div class="row form-group">用户邮箱</label>
+												    <input name="email" type="text" class="form-control" id="exampleInputquestion" placeholder="请输入你注册时设置的邮箱" ">
 												  </div>
 												  <div class="row form-group">
 												  	<input type="submit" class="form-control" value="提交" style="margin-top:40px;background: #52d3aa;color: #fff;border: 2px solid #52d3aa;"  />

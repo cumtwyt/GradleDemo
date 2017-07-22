@@ -12,6 +12,7 @@ public class User implements Serializable{
 	public String User_tel;
 	public String User_que;
 	public String User_anw;
+	public String User_email;
 	
 	
 	public User() {
@@ -67,11 +68,19 @@ public class User implements Serializable{
 			User_anw = user_anw;
 		}
 		
+		
+		
+		public String getUser_email() {
+			return User_email;
+		}
+		public void setUser_email(String user_email) {
+			User_email = user_email;
+		}
 		@Override
 		public String toString() {
 			return "User [User_id=" + User_id + ", User_name=" + User_name + ", User_pwd="
 					+ User_pwd + ",User_sex="+User_sex+",User_age="+User_age+","
-							+ "User_tel="+User_tel+",User_que="+User_que+",User_anw="+User_anw+"]";
+							+ "User_tel="+User_tel+",User_que="+User_que+",User_anw="+User_anw+",User_email="+User_email+"]";
 		}
 	
 	

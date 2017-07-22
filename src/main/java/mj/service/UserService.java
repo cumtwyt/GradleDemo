@@ -2,6 +2,8 @@ package mj.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import mj.domain.User;
 
 public interface UserService {
@@ -19,5 +21,7 @@ public interface UserService {
 	User protect(String username,String question,String answer);
 	
 	User updatepwd(String password,String user_id);
+	
+	User findWithLoginnameAndEmail(String loginname,String email);
 
 }

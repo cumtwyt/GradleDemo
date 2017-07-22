@@ -43,5 +43,9 @@ public interface UserMapper {
 	
 	@Select("update tb_user set user_pwd=#{password} where user_id=#{user_id}")
 	User updatepwd(@Param("password")String password,@Param("user_id")String user_id);
+	
+	@Select("select * from tb_user where user_name= #{loginname} and user_email = #{email}")
+	User findWithLoginnameAndEmail(@Param("loginname")String loginname,
+			@Param("email") String email);
 }
 

@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -62,11 +64,6 @@ public class UserController {
 		
 	}
 	
-	/*@RequestMapping(value="/detail1")
-	public String detail1(){
-		return "detail1";
-		
-	}*/
 	@RequestMapping(value="/check")
 	public String check(){
 		return "check";
@@ -170,6 +167,47 @@ public class UserController {
 		String user_id=(String) session.getAttribute("numb");//获取用户id
 		userService.updatepwd(password, user_id);
 		mv.setViewName("login");
+		return mv;
+	}
+	
+	@RequestMapping(value="/findpwdemail")
+	 public ModelAndView findpwdemail(String loginname,String email,ModelAndView mv,HttpSession session,HttpServletResponse response) throws Exception{		
+		User user=userService.findWithLoginnameAndEmail(loginname, email);
+		if(user!=null){
+			StringBuffer url=new StringBuffer();
+			StringBuilder builder=new StringBuilder();
+			builder.append("");
+			url.append("您的密码是："+user.getUser_pwd()+"");
+			builder.append("");
+			builder.append(""+url+"");
+			
+			System.out.print("builder输出");
+			builder.append("");
+			SimpleEmail sendemail=new SimpleEmail();
+			sendemail.setHostName("smtp.163.com");
+			sendemail.setAuthentication("13270331659@163.com","951208qyj");
+			sendemail.setCharset("UTF-8");
+			try{
+				sendemail.setCharset("UTF-8");
+				sendemail.addTo(email);
+				sendemail.setFrom("jsxzqyj@163.com");
+				sendemail.setSubject("欢乐购商城--找回密码");
+				sendemail.setMsg(builder.toString());
+				sendemail.send();
+				System.out.println(builder.toString());
+			}catch(EmailException e){
+				e.printStackTrace();
+				System.out.print("抛出异常");
+			}
+			
+//			response.sendRedirect("loginForm");
+			mv.setViewName("loginForm");
+		
+		}else{
+			
+			response.getWriter().println("密码获取失败");
+			System.out.print("密码获取失败");
+		}	
 		return mv;
 	}
 	

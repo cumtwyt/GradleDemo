@@ -77,7 +77,13 @@ dependencies {
     'org.springframework:spring-web:4.2.0.RELEASE',
     'org.springframework:spring-webmvc:4.2.0.RELEASE',
     'org.springframework:spring-webmvc-portlet:4.2.0.RELEASE',
-    'org.springframework:spring-websocket:4.0.0.RELEASE'
+    'org.springframework:spring-websocket:4.0.0.RELEASE',
+    'javax.servlet:javax.servlet-api:3.1.0',
+	'javax.servlet:jstl:1.2',
+	'aspectj:aspectjweaver:1.5.4',
+	'commons-io:commons-io:2.5',
+	'commons-fileupload:commons-fileupload:1.2.2',
+	'org.apache.commons:commons-email:1.4'
 
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
