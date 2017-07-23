@@ -110,7 +110,7 @@
 						<br/>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" onclick="Save()">登录</button>
-							<span style="font-family: 仿宋;font-size: 14px"><a href="backpwd">忘记密码</a></span>
+							<span style="font-family: 仿宋;font-size: 14px"><a href="emailback">忘记密码</a></span>
     						<a href="enrollbutton"/><input type="button" value="注册" class="btn btn-primary"/></a>
   						</div>
   						<c:if test="${message!=null}"><c:out value="${message}"></c:out></c:if>

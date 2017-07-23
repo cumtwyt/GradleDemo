@@ -134,6 +134,7 @@ public class UserController {
 		return mv;
 	}
 	
+	/*
 	@RequestMapping(value="/ifindpwd",method=RequestMethod.POST)
 	public ModelAndView find(String username,String question,String answer,
 		ModelAndView mv,
@@ -149,10 +150,19 @@ public class UserController {
 		}
 		return mv;
 	}
+	*/
 	
+	/*
 	@RequestMapping(value="/backpwd")
 	public String backpwd(){
 		return "backpwd";
+		
+	}
+	*/
+	
+	@RequestMapping(value="/emailback")
+	public String emailback(){
+		return "emailback";
 		
 	}
 	
@@ -185,13 +195,13 @@ public class UserController {
 			builder.append("");
 			SimpleEmail sendemail=new SimpleEmail();
 			sendemail.setHostName("smtp.163.com");
-			sendemail.setAuthentication("13270331659@163.com","951208qyj");
+			sendemail.setAuthentication("13270331659@163.com","123456cr");
 			sendemail.setCharset("UTF-8");
 			try{
 				sendemail.setCharset("UTF-8");
 				sendemail.addTo(email);
-				sendemail.setFrom("jsxzqyj@163.com");
-				sendemail.setSubject("欢乐购商城--找回密码");
+				sendemail.setFrom("13270331659@163.com");
+				sendemail.setSubject("各书己见--找回密码");
 				sendemail.setMsg(builder.toString());
 				sendemail.send();
 				System.out.println(builder.toString());
@@ -201,7 +211,7 @@ public class UserController {
 			}
 			
 //			response.sendRedirect("loginForm");
-			mv.setViewName("loginForm");
+			mv.setViewName("login");
 		
 		}else{
 			
