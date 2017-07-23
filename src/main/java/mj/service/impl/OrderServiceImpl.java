@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import mj.domain.Cart;
 import mj.domain.Good;
 import mj.domain.Order;
+import mj.domain.User;
 import mj.mapper.OrderMapper;
 import mj.service.OrderService;
 
@@ -74,6 +75,24 @@ public class OrderServiceImpl implements OrderService{
 	public Good updatestandse(int good_store, int good_sell, String good_id) {
 		// TODO Auto-generated method stub
 		return orderMapper.updatestandse(good_store, good_sell, good_id);
+	}
+
+	@Override
+	public Order selectRecord(int order_id) {
+		// TODO Auto-generated method stub
+		return orderMapper.selectRecord(order_id);
+	}
+
+	@Override
+	public User selectuser(String user_id) {
+		// TODO Auto-generated method stub
+		return orderMapper.selectuser(user_id);
+	}
+
+	@Override
+	public User sentemail(String user_id, String user_email) {
+		// TODO Auto-generated method stub
+		return orderMapper.sentemail(user_id, user_email);
 	}
 
 	

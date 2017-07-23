@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import mj.domain.Cart;
 import mj.domain.Good;
 import mj.domain.Order;
+import mj.domain.User;
 
 
 
@@ -43,7 +44,15 @@ public interface OrderMapper {
 	@Select("update tb_good set good_store=#{good_store},good_sell=#{good_sell} where good_id=#{good_id}")
 	Good updatestandse(@Param("good_store")int good_store,@Param("good_sell")int good_sell,@Param("good_id")String good_id);
 	
+	@Select("select * from tb_order where order_id=#{order_id}")
+	Order selectRecord(@Param("order_id")int order_id);
 	
+	@Select("select * from tb_user where user_id=#{user_id}")
+	User selectuser(@Param("user_id")String user_id);
+	
+	@Select("select * from tb_user where user_id= #{user_id} and user_email = #{user_email}")
+	User sentemail(@Param("user_id")String user_id,
+			@Param("user_email") String user_email);
 	
 }
 

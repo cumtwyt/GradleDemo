@@ -42,8 +42,9 @@ public class GoodController {
 	@RequestMapping(value="/add")
 	 public String addbook(Model model,String id,
 				String name,String price,String remark,String image,
-				String image1,String image2,int subjectid){
-		Good addgood=goodService.addgood(id, name, price, remark, image, image1, image2, subjectid);
+				String image1,String image2,int subjectid,int store){
+		int sell=0;
+		Good addgood=goodService.addgood(id, name, price, remark, image, image1, image2, subjectid,store,sell);
 		// 获得所有物品
 		List<Good> good_list =goodService.getAll();
 		// 将物品集合添加到model当中

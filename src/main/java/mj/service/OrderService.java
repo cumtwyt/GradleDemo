@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import mj.domain.Cart;
 import mj.domain.Good;
 import mj.domain.Order;
+import mj.domain.User;
 
 public interface OrderService {
 	List<Order> getAll();
@@ -28,6 +29,12 @@ public interface OrderService {
 	List<Order> selectById(int order_id);
 	
 	Good updatestandse(int good_store,int good_sell,String good_id);
+	
+	Order selectRecord(int order_id);
+	
+	User selectuser(String user_id);
+	
+	User sentemail(String user_id,String user_email);
 	
 
 }

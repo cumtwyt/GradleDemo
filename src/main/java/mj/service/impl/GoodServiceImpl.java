@@ -52,9 +52,9 @@ public class GoodServiceImpl implements GoodService{
 
 	@Override
 	public Good addgood(String id, String name, String price, String remark, String image, String image1, String image2,
-			int subjectid) {
+			int subjectid,int store,int sell) {
 		// TODO Auto-generated method stub
-		return goodMapper.addgood(id, name, price, remark, image, image1, image2, subjectid);
+		return goodMapper.addgood(id, name, price, remark, image, image1, image2, subjectid,store,sell);
 	}
 
 

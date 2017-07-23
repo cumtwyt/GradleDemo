@@ -3,8 +3,11 @@ package mj.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import mj.domain.Cart;
 import mj.domain.Good;
 import mj.domain.Order;
+import mj.domain.User;
 import mj.service.OrderService;
 
 
@@ -58,9 +62,45 @@ public class OrderController {
 	
 	@RequestMapping(value="/updatestatus")
 	public String updatestatus(Model model,
-			Integer order_id,String order_status,HttpSession session){
+			Integer order_id,String order_status,HttpSession session,HttpServletResponse response)throws Exception{
 		//String user_id=(String) session.getAttribute("numb");
 		Order updatestatus=orderService.updatestatus(order_status, order_id);
+		Order select=orderService.selectRecord(order_id);
+		String user_id=select.getOrder_uid();
+		User user=orderService.selectuser(user_id);
+		String user_email=user.getUser_email();
+		User user2=orderService.sentemail(user_id, user_email);
+		if(user2!=null){
+			StringBuffer url=new StringBuffer();
+			StringBuilder builder=new StringBuilder();
+			builder.append("");
+			url.append("您的订单是："+select.getOrder_status()+"");
+			builder.append("");
+			builder.append(""+url+"");
+			System.out.print("builder输出");
+			builder.append("");
+			SimpleEmail sendemail=new SimpleEmail();
+			sendemail.setHostName("smtp.163.com");
+			sendemail.setAuthentication("13270331659@163.com","123456cr");
+			sendemail.setCharset("UTF-8");
+			try{
+				sendemail.setCharset("UTF-8");
+				sendemail.addTo(user_email);
+				sendemail.setFrom("13270331659@163.com");
+				sendemail.setSubject("各书己见--订单状态通知");
+				sendemail.setMsg(builder.toString());
+				sendemail.send();
+				System.out.println(builder.toString());
+			}catch(EmailException e){
+				e.printStackTrace();
+				System.out.print("抛出异常");
+			}
+			//return "readorder";
+		}else{
+			
+			response.getWriter().println("密码获取失败");
+			System.out.print("密码获取失败");
+		}	
 		List<Order> order_list =orderService.getAll();
 		// 将物品集合添加到model当中
 		model.addAttribute("order_list", order_list);

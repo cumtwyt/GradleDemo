@@ -13,9 +13,10 @@ public interface GoodMapper {
 	@Select("select * from tb_good")
 	List<Good> findAll();
 	
-	@Select("insert into tb_good values(#{id},#{name},#{price},#{remark},#{image},#{image1},#{image2},#{subjectid})")
+	@Select("insert into tb_good values(#{id},#{name},#{price},#{remark},#{image},#{image1},#{image2},#{subjectid},#{store},#{sell})")
 	Good addgood(@Param("id")String id,@Param("name")String name,
-			@Param("price") String price,@Param("remark") String remark,@Param("image") String image,@Param("image1") String image1,@Param("image2") String image2,@Param("subjectid") int subjectid);
+			@Param("price") String price,@Param("remark") String remark,@Param("image") String image,@Param("image1") String image1,
+			@Param("image2") String image2,@Param("subjectid") int subjectid,@Param("store") int store,@Param("sell") int sell);
 	
 	@Select("update tb_good set good_id=#{id},good_name=#{name},"
 			+ "good_price=#{price},good_remark=#{remark},good_image=#{image},subject_id=#{subjectid} where good_id=#{id}")
