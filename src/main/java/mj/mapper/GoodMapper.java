@@ -19,9 +19,9 @@ public interface GoodMapper {
 			@Param("image2") String image2,@Param("subjectid") int subjectid,@Param("store") int store,@Param("sell") int sell);
 	
 	@Select("update tb_good set good_id=#{id},good_name=#{name},"
-			+ "good_price=#{price},good_remark=#{remark},good_image=#{image},subject_id=#{subjectid} where good_id=#{id}")
+			+ "good_price=#{price},good_remark=#{remark},good_image=#{image},good_image1=#{image1},good_image2=#{image2},subject_id=#{subjectid} where good_id=#{id}")
 	Good updategood(@Param("id")String id,@Param("name")String name,
-			@Param("price")String price,@Param("remark")String remark,@Param("image")String image,@Param("subjectid") int subjectid);
+			@Param("price")String price,@Param("remark")String remark,@Param("image")String image,@Param("image1")String image1,@Param("image2")String image2,@Param("subjectid") int subjectid);
 	
 	@Delete("delete from tb_good where good_id=#{id}")
 	void deletegood(String id);

@@ -56,15 +56,19 @@ public class GoodController {
 	
 	
 	@RequestMapping(value="/update")
-	public ModelAndView updatebook(ModelAndView mv,String id,
-			String name,String price,String remark,String image,int subjectid){
-		Good updategood=goodService.updategood(id,name,price,remark,image,subjectid);
-		mv.setViewName("msuccess");
-		return mv;
+	public String updatebook(Model model,String id,
+			String name,String price,String remark,String image,String image1,String image2,int subjectid){
+		Good updategood=goodService.updategood(id, name, price, remark, image, image1, image2, subjectid);
+		List<Good> good_list =goodService.getAll();
+		
+		// 将物品集合添加到model当中
+		model.addAttribute("good_list", good_list);
+		// 跳转到shop页面
+		return "readgood";
 	}
 	
 	@RequestMapping(value="/delete")
-	 public String deletebook(Model model,String id){
+	 public String delete(Model model,String id){
 		goodService.deletegood(id);
 		// 获得所有物品
 		List<Good> good_list =goodService.getAll();
@@ -99,6 +103,15 @@ public class GoodController {
 		model.addAttribute("good_list", good_list);
 		// 跳转到shop页面
 		return "readgood";
+	}
+	
+	@RequestMapping(value="/deletebook")
+	public String deletebook(Model model){
+		List<Good> good_list =goodService.getAll();
+		// 将物品集合添加到model当中
+		model.addAttribute("good_list", good_list);
+		return "deletebook";
+		
 	}
 	
 }

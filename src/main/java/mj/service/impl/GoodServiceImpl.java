@@ -27,8 +27,8 @@ public class GoodServiceImpl implements GoodService{
 	
 	
 	@Override
-	public Good updategood(String id, String name,String price,String remark,String image,int subjectid) {
-		return goodMapper.updategood(id, name,price,remark,image,subjectid);
+	public Good updategood(String id, String name,String price,String remark,String image,String image1,String image2,int subjectid) {
+		return goodMapper.updategood(id, name, price, remark, image, image1, image2, subjectid);
 	}
 	
 	@Override

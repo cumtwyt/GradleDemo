@@ -13,6 +13,7 @@
 <link href="css/styles1.css" rel="stylesheet">
 <link href="css/bootstrap-table.css" rel="stylesheet">
 
+
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
@@ -51,16 +52,16 @@
 			<li>
 				<a href="#"><span class="glyphicon glyphicon-pencil"></span>书籍管理<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></a>
 				<ul class="children collapse" id="sub-item-2">
-				<li>&emsp;&emsp;&emsp;<a href="readgood"><span class="glyphicon glyphicon-pencil"></span>查看书籍</a></li>
+					<li>&emsp;&emsp;&emsp;<a href="readgood"><span class="glyphicon glyphicon-pencil"></span>查看书籍</a></li>
 					<li>&emsp;&emsp;&emsp;<a href="addbook"><span class="glyphicon glyphicon-pencil"></span>添加书籍</a></li>
 					<li>&emsp;&emsp;&emsp;<a href="updatebook"><span class="glyphicon glyphicon-pencil"></span> 修改书籍</a></li>
-					<li class="active">&emsp;&emsp;&emsp;<a href="deletebook"><span class="glyphicon glyphicon-pencil"></span>删除书籍</a></li>
+					<li>&emsp;&emsp;&emsp;<a href="deletebook"><span class="glyphicon glyphicon-pencil"></span>删除书籍</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="#"><span class="glyphicon glyphicon-pencil"></span>订单管理<span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></a>
 				<ul class="children collapse" id="sub-item-3">
-					<li>&emsp;&emsp;&emsp;<a href="readorder"><span class="glyphicon glyphicon-pencil"></span>查看订单</a></li>
+					<li class="active">&emsp;&emsp;&emsp;<a href="readorder"><span class="glyphicon glyphicon-pencil"></span>查看订单</a></li>
 				</ul>
 			</li>
 			
@@ -89,35 +90,49 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
 			<ol class="breadcrumb">
-				<li class="active">书籍管理模块</li>
+				<li class="active">商品列表</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">删除书籍</h1>
+				<h1 class="page-header">在售商品详情</h1>
 			</div>
 		</div><!--/.row-->
 		<div class="row" >
 			<div class="col-lg-12">
 				<div class="panel panel-default" >
-					<div class="panel-heading">删除书籍信息</div>
+					<div class="panel-heading">商品汇总</div>
 					<div class="panel-body">
-						<form action='delete' method='post'>
-							<div class="form-group">
-									<label for="id">书籍ID</label>
-									<input type='text' name='id' placeholder='BookId' id="id" class="form-control">
-							</div>
-							<div class="form-group">
-								<center><input type='submit' value='删除图书' class="btn btn-primary"></center>
-							</div>
-						</form>
+						<center>
+						<table class="table">
+						    <thead>
+						    <tr>
+						        <th class="jz">书籍ID</th>
+						        <th class="jz">书籍名</th>
+						        <th class="jz">书籍价格</th>
+						        <th class="jz">书籍描述</th>
+						        <th class="jz">删除书籍</th>
+						    </tr>
+						    </thead>
+						    <tbody>
+						    <c:forEach items="${requestScope.good_list }" var="good">
+								<tr>
+									<td class="jz" style="height:50px;">${good.good_id }</td>
+									<td class="jz">${good.good_name }</td>
+									<td class="jz">${good.good_price }</td>
+									<td class="jz">${good.good_remark }</td>
+									<td><a href="delete?id=${good.good_id }"><button type="submit">删除</button></a></td>
+								</tr>
+							</c:forEach>
+						    </tbody>
+						</table>
+						</center>
 					</div>
 				</div>
 			</div>
 		</div><!--/.row-->
 	</div>
-	
 		
 
 	<script src="js/jquery-1.11.1.min.js"></script>

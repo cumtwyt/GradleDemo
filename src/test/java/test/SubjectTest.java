@@ -49,16 +49,7 @@ public class SubjectTest extends AbstractJUnit4SpringContextTests{
 		System.out.println(subjectadd);
 	}
 	
-	/*
-	@Test
-	public void testdelete() {
-		String name="主题六";
-		assertEquals(null,subjectService.deletesubject(name));
-		//subjectService.deletesubject(name);;
-		//System.out.println(subjectlist);
-	}
-	*/
-
+	
 
 
 }

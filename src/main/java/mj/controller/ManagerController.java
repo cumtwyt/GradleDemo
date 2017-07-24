@@ -61,11 +61,7 @@ public class ManagerController {
 		
 	}
 	
-	@RequestMapping(value="/deletebook")
-	public String deletebook(){
-		return "deletebook";
-		
-	}
+	
 	
 	@RequestMapping(value="/addsubject")
 	public String addsubject(){

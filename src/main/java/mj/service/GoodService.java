@@ -9,7 +9,7 @@ public interface GoodService {
 	
 	Good addgood(String id,String name,String price,String remark,String image,String image1,String image2,int subjectid,int store,int sell);
 
-	Good updategood(String id, String name, String price, String remark, String image,int subjectid);
+	Good updategood(String id, String name, String price, String remark, String image,String image1,String image2,int subjectid);
 
 	public void deletegood(String id);
 	

@@ -130,6 +130,16 @@
 									 <p class="help-block">请选择要添加的图片</p>
 							</div>
 							<div class="form-group">
+									<label for="image1">图片</label>
+									<input type="file" name="image1" id="image1">
+									 <p class="help-block">请选择要添加的图片</p>
+							</div>
+							<div class="form-group">
+									<label for="image2">图片</label>
+									<input type="file" name="image2" id="image2">
+									 <p class="help-block">请选择要添加的图片</p>
+							</div>
+							<div class="form-group">
 								<center><input type='submit' value='修改图书' class="btn btn-primary"></center>
 							</div>
 						</form>

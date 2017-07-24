@@ -56,8 +56,10 @@ public class GoodTest extends AbstractJUnit4SpringContextTests{
 		String price="33";
 		String remark="miaoshu";
 		String image="liaozhaizhiyi.jpg";
+		String image1="liaozhaizhiyi1.jpg";
+		String image2="liaozhaizhiyi2.jpg";
 		int subjectid=4;
-		Good good=goodService.updategood(id, name, price, remark, image, subjectid);
+		Good good=goodService.updategood(id, name, price, remark, image, image1, image2, subjectid);
 		//System.out.println(good);
 	}
 
