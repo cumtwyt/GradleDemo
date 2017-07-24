@@ -122,7 +122,7 @@
 									<td class="jz">${good.good_name }</td>
 									<td class="jz">${good.good_price }</td>
 									<td class="jz">${good.good_remark }</td>
-									<td><a href="delete?id=${good.good_id }"><button type="submit">删除</button></a></td>
+									<td><a href="delete?id=${good.good_id }"><button type="submit" class="btn btn-primary">删除</button></a></td>
 								</tr>
 							</c:forEach>
 						    </tbody>

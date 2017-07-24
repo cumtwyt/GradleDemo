@@ -13,6 +13,7 @@
 <link href="css/styles1.css" rel="stylesheet">
 <link href="css/bootstrap-table.css" rel="stylesheet">
 
+
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
@@ -51,16 +52,16 @@
 			<li>
 				<a href="#"><span class="glyphicon glyphicon-pencil"></span>书籍管理<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></a>
 				<ul class="children collapse" id="sub-item-2">
-				<li>&emsp;&emsp;&emsp;<a href="readgood"><span class="glyphicon glyphicon-pencil"></span>查看书籍</a></li>
+					<li>&emsp;&emsp;&emsp;<a href="readgood"><span class="glyphicon glyphicon-pencil"></span>查看书籍</a></li>
 					<li>&emsp;&emsp;&emsp;<a href="addbook"><span class="glyphicon glyphicon-pencil"></span>添加书籍</a></li>
-					<li class="active">&emsp;&emsp;&emsp;<a href="updatebook"><span class="glyphicon glyphicon-pencil"></span> 修改书籍</a></li>
+					<li>&emsp;&emsp;&emsp;<a href="updatebook"><span class="glyphicon glyphicon-pencil"></span> 修改书籍</a></li>
 					<li>&emsp;&emsp;&emsp;<a href="deletebook"><span class="glyphicon glyphicon-pencil"></span>删除书籍</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="#"><span class="glyphicon glyphicon-pencil"></span>订单管理<span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></a>
 				<ul class="children collapse" id="sub-item-3">
-					<li>&emsp;&emsp;&emsp;<a href="readorder"><span class="glyphicon glyphicon-pencil"></span>查看订单</a></li>
+					<li class="active">&emsp;&emsp;&emsp;<a href="readorder"><span class="glyphicon glyphicon-pencil"></span>查看订单</a></li>
 				</ul>
 			</li>
 			
@@ -89,66 +90,53 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
 			<ol class="breadcrumb">
-				<li class="active">书籍管理模块</li>
+				<li class="active">商品列表</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">修改书籍</h1>
+				<h1 class="page-header">在售商品详情</h1>
 			</div>
 		</div><!--/.row-->
 		<div class="row" >
 			<div class="col-lg-12">
 				<div class="panel panel-default" >
-					<div class="panel-heading">修改书籍信息</div>
+					<div class="panel-heading">商品汇总</div>
 					<div class="panel-body">
-						<form action='update' method='post'>
-							<div class="form-group">
-									<label for="id">书籍ID</label>
-									<input type='text' name='id' placeholder='BookId' id="id" class="form-control">
-							</div>
-							<div class="form-group">
-									<label for="name">书籍名称</label>
-									<input type='text' name='name' placeholder='BookName' id="name" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="price">价格</label>
-								<input type='text' name='price' id="price" class="form-control" placeholder="BookPrice">
-							</div>
-							<div class="form-group">
-									<label for="remark">描述</label>
-									<input type="text" id="remark" class="form-control" name="remark" placeholder="BookRemark">
-							</div>
-							<div class="form-group">
-									<label for="subjectid">所属分类</label>
-									<input type="text" id="subject" class="form-control" name="subjectid" placeholder="SubjectID">
-							</div>
-							<div class="form-group">
-									<label for="image">图片</label>
-									<input type="file" name="image" id="image">
-									 <p class="help-block">请选择要添加的图片</p>
-							</div>
-							<div class="form-group">
-									<label for="image1">图片</label>
-									<input type="file" name="image1" id="image1">
-									 <p class="help-block">请选择要添加的图片</p>
-							</div>
-							<div class="form-group">
-									<label for="image2">图片</label>
-									<input type="file" name="image2" id="image2">
-									 <p class="help-block">请选择要添加的图片</p>
-							</div>
-							<div class="form-group">
-								<center><input type='submit' value='修改图书' class="btn btn-primary"></center>
-							</div>
-						</form>
+						<center>
+						<table class="table">
+						    <thead>
+						    <tr>
+						        <th class="jz" style="width:20%">书籍ID</th>
+						        <th class="jz">书籍名</th>
+						        <th class="jz">书籍价格</th>
+						        <th class="jz">书籍描述</th>
+						        <th class="jz">书籍图片</th>
+						        <th class="jz">更新书籍</th>
+						    </tr>
+						    </thead>
+						    <tbody>
+						    <c:forEach items="${requestScope.good_list }" var="good">
+								<form action='update?id=${good.good_id }' method='post'>
+									<tr>
+										<td class="jz" style="height:50px;">${good.good_id }</td>
+										<td class="jz">${good.good_name }</td>
+										<td class="jz"><input type="text" placeholder="${good.good_price }" name="price"/></td>
+										<td class="jz"><input type="text" placeholder="${good.good_remark }" name="remark"/></td>
+										<td><input type="file" name="image" id="image2"></td>
+										<td><button type="submit" class="btn btn-primary">更新</button></a></td>
+									</tr>
+								</form>
+							</c:forEach>
+						    </tbody>
+						</table>
+						</center>
 					</div>
 				</div>
 			</div>
 		</div><!--/.row-->
 	</div>
-	
 		
 
 	<script src="js/jquery-1.11.1.min.js"></script>

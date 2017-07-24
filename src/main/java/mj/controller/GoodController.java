@@ -57,8 +57,8 @@ public class GoodController {
 	
 	@RequestMapping(value="/update")
 	public String updatebook(Model model,String id,
-			String name,String price,String remark,String image,String image1,String image2,int subjectid){
-		Good updategood=goodService.updategood(id, name, price, remark, image, image1, image2, subjectid);
+			String price,String remark,String image){
+		Good updategood=goodService.updategood(id, price, remark, image);
 		List<Good> good_list =goodService.getAll();
 		
 		// 将物品集合添加到model当中
@@ -111,6 +111,15 @@ public class GoodController {
 		// 将物品集合添加到model当中
 		model.addAttribute("good_list", good_list);
 		return "deletebook";
+		
+	}
+	
+	@RequestMapping(value="/updatebook")
+	public String updatebook(Model model){
+		List<Good> good_list =goodService.getAll();
+		// 将物品集合添加到model当中
+		model.addAttribute("good_list", good_list);
+		return "updatebook";
 		
 	}
 	

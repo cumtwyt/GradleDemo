@@ -145,7 +145,7 @@
 						<div class="input-group">
 							<hr>
 						</div>
-						<form action="addcom?good_id=${item1.good_id}" method="post">
+						<form action="addcom?good_id=${item1.good_id}" method="post" enctype="multipart/form-data">
 							<div class="panel-body">
 									<textarea rows="10" cols="40" name="com_con"></textarea>
 							</div>
@@ -154,7 +154,7 @@
 							</div>
 							<div class="panel-body">
 									<label>图片</label>
-									<input type="file" name="com_image" class="btn btn-primary">
+									<input type="file" name="file" class="btn btn-primary">
 									<p class="help-block">请选择要添加的图片</p>
 							</div>
 							<div class="input-group">

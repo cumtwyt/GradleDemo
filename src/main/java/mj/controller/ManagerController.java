@@ -55,11 +55,7 @@ public class ManagerController {
 		
 	}
 	
-	@RequestMapping(value="/updatebook")
-	public String updatebook(){
-		return "updatebook";
-		
-	}
+	
 	
 	
 	

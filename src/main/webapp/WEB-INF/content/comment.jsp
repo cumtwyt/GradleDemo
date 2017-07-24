@@ -122,10 +122,10 @@
 									<span>书籍评论</span>
 									<p>
 											${comment.com_con } 
-									</p>
+									</p>	
 								</div>
 								<div class="panel-body">
-									<img src="images/${comment.com_image}" style="width:80%;height:50%"/>
+									<img src="./images/${comment.com_image}" style="width:80%;height:50%"/>
 								</div>
 							</div>
 						</li>
@@ -133,11 +133,6 @@
 					</ul>
 				</div>
 					</div>
-			<div class="input-group">
-				<span class="input-group-btn">
-					<a href="addcomment"><button class="form-control" style="margin-top:40px;background: #52d3aa;color: #fff;border: 2px solid #52d3aa;" id="btn-chat">发表我的评论</button></a>
-				</span>
-			</div>
 		</div><!--/.col-->
 	</div>
 	<div class="gtco-container" id="show">

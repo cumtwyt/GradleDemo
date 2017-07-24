@@ -74,7 +74,7 @@
 							<ul class="dropdown">
 								<li style="font-size:13px;font-family:仿宋;"><a href="backpwd">查看个人信息</a></li>
 								<li style="font-size:13px;font-family:仿宋;"><a href="p-update">修改密码</a></li>
-								<li style="font-size:13px;font-family:仿宋;"><a href="check">修改个人信息</a></li>
+								<li style="font-size:13px;font-family:仿宋;"><a href="mark">查看评价</a></li>
 								<li style="font-size:13px;font-family:仿宋;"><a href="order">查看订单 </a></li>
 								<li style="font-size:13px;font-family:仿宋;"><a href="deletecomment">清空用户评论 </a></li>
 							</ul>

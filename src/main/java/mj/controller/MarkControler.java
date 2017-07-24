@@ -51,5 +51,16 @@ public class MarkControler {
 		return "mark";
 	}
 	
+	@RequestMapping(value="/mark")
+	public String mark(Model model,HttpSession session){
+		String user_id=(String) session.getAttribute("numb");//获取用户id
+		List<Mark> save=markService.readmark(user_id);
+		// 将物品集合添加到model当中
+		model.addAttribute("save", save);
+		// 跳转到cart页面
+		return "mark";
+	}
+	
+	
 	
 }

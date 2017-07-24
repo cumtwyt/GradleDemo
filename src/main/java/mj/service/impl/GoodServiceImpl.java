@@ -26,10 +26,6 @@ public class GoodServiceImpl implements GoodService{
 	
 	
 	
-	@Override
-	public Good updategood(String id, String name,String price,String remark,String image,String image1,String image2,int subjectid) {
-		return goodMapper.updategood(id, name, price, remark, image, image1, image2, subjectid);
-	}
 	
 	@Override
 	public void deletegood(String id) {
@@ -55,6 +51,15 @@ public class GoodServiceImpl implements GoodService{
 			int subjectid,int store,int sell) {
 		// TODO Auto-generated method stub
 		return goodMapper.addgood(id, name, price, remark, image, image1, image2, subjectid,store,sell);
+	}
+
+
+
+
+	@Override
+	public Good updategood(String id, String price, String remark, String image) {
+		// TODO Auto-generated method stub
+		return goodMapper.updategood(id, price, remark, image);
 	}
 
 

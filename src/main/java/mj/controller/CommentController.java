@@ -1,5 +1,6 @@
 package mj.controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import mj.domain.Comment;
@@ -35,12 +39,6 @@ public class CommentController {
 	private CommentService commentService;
 	
 	/*
-	@RequestMapping(value="/addcomment")
-	public String addcomment(){
-		return "addcomment";
-	}
-	*/
-	
 	@RequestMapping(value="/addcom")
 	public String addcomment(Model model,HttpSession session,
 			String good_id,String com_con,String com_image){
@@ -51,6 +49,8 @@ public class CommentController {
 		model.addAttribute("comment_list", comment_list);
 		return "comment";
 	}
+	*/
+	
 	
 	@RequestMapping(value="/readcomment")
 	 public String main(Model model){
@@ -82,6 +82,41 @@ public class CommentController {
 		// 将物品集合添加到model当中
 		model.addAttribute("comment_list", comment_list);
 		return "comment";
+	}
+	
+	
+	@RequestMapping(value="/addcom",method=RequestMethod.POST)
+	public String addcomment(HttpServletRequest request,Model model,HttpSession session,
+			String good_id,String com_con,@RequestParam("file") MultipartFile file)throws Exception{
+		String user_id=(String) session.getAttribute("numb");
+		if(!file.isEmpty()){
+			// 上传文件路径
+			String path = request.getServletContext().getRealPath(
+	                "/images/");
+			// 上传文件名
+			String filename = file.getOriginalFilename();
+		    File filepath = new File(path,filename);
+			// 判断路径是否存在，如果不存在就创建一个
+	        if (!filepath.getParentFile().exists()) { 
+	        	filepath.getParentFile().mkdirs();
+	        }
+	        // 将上传文件保存到一个目标文件当中
+			file.transferTo(new File(path+File.separator+ filename));
+			String com_image=filepath.getName();
+			commentService.addcomment(user_id, good_id, com_con, com_image);
+			List<Comment> comment_list = commentService.findComByGId(good_id);
+			// 将物品集合添加到model当中
+			model.addAttribute("comment_list", comment_list);
+			return "comment";
+		}else{
+			return "comment";
+		}
+		
+		//commentService.addcomment(user_id, good_id, com_con, com_image);
+		//List<Comment> comment_list = commentService.findComByGId(good_id);
+		// 将物品集合添加到model当中
+		//model.addAttribute("comment_list", comment_list);
+		//return "comment";
 	}
 	
 	
